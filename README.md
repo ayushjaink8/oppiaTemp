@@ -4,6 +4,7 @@ temporary repo for oppia
 
 I thought of doing something like this:
 
+{{
 modifyPositionValues(
     nodeData: NodeDataDict, graphWidth: number,
     graphHeight: number): NodeDataDict {
@@ -27,11 +28,13 @@ modifyPositionValues(
   return nodeData;
 }
 
+}}
 
 Actually, what i think, the problem is.. that nodeData[nodeId] is an object (let us say: obj ).
 Now, ts checks won't allow us to use obj["string"]. 
 
 i have tried changing the NodeData interface like this:
+{{{
 interface NodeData {
   "depth": number;
   "offset": number;
@@ -46,5 +49,7 @@ interface NodeData {
   "label": string;
   "reachableFromEnd": boolean;
 }
+
+}}}
 
 but this also doesn't worked for me
